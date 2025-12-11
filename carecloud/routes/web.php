@@ -56,7 +56,7 @@ Route::get('/doctor', function () {
 
 Route::get('/service', function () {
     return view('patient.service');
-});
+});n
 /////views for patients end////
 
 
