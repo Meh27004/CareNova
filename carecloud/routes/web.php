@@ -3,6 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PatientsController;
+use App\Http\Controllers\DoctorsController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\HospitalController;
+
+
 
 
 /////views for patients////
@@ -84,4 +91,15 @@ Route::post('/register',[authController::class,'register'])->name('auth.register
 // Route::post('form/login',[authController::class,'login'])->name('auth.login');
 
 Route::post('/login', [authController::class, 'login'])->name('auth.login');
+
+// Admin Routs   //
+Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+Route::get('/appointments', [AdminController::class, 'appointments'])->name('appointments');
+Route::get('/reports', [AdminController::class, 'reports'])->name('reports');
+Route::get('/billing', [AdminController::class, 'billing'])->name('billing');
+Route::resource('patients', PatientsController::class);
+Route::resource('doctors', DoctorsController::class);
+Route::resource('cities', CityController::class);
+Route::resource('hospital', HospitalController::class);
+
 
