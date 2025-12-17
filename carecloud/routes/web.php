@@ -2,12 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authController;
-use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\BillingController;
+use App\Http\Controllers\AppointmentController;
+
 
 
 
@@ -26,7 +29,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/appointment', function () {
-    return view('patient.appointment');
+    return view('patient.appointments.create');
 });
 
 Route::get('/blog-sidebar', function () {
@@ -67,14 +70,6 @@ Route::get('/service', function () {
 /////views for patients end////
 
 
-// Patient side post route
-Route::post('/appointment/store', [AppointmentController::class, 'store'])->name('appointment.store');
-
-// Admin CRUD
-Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index');
-Route::get('/appointments/edit/{id}', [AppointmentController::class, 'edit'])->name('appointments.edit');
-Route::post('/appointments/update/{id}', [AppointmentController::class, 'update'])->name('appointments.update');
-Route::delete('/appointments/delete/{id}', [AppointmentController::class, 'destroy'])->name('appointments.delete');
 
 
 // Auth Routes
@@ -93,13 +88,18 @@ Route::post('/register',[authController::class,'register'])->name('auth.register
 Route::post('/login', [authController::class, 'login'])->name('auth.login');
 
 // Admin Routs   //
-Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
-Route::get('/appointments', [AdminController::class, 'appointments'])->name('appointments');
-Route::get('/reports', [AdminController::class, 'reports'])->name('reports');
-Route::get('/billing', [AdminController::class, 'billing'])->name('billing');
+Route::get('/admin', [AdminController::class, 'dashboard'])->name('dashboard');
+// Route::get('/appointments', [AdminController::class, 'appointments'])->name('appointments');
 Route::resource('patients', PatientsController::class);
 Route::resource('doctors', DoctorsController::class);
 Route::resource('cities', CityController::class);
 Route::resource('hospital', HospitalController::class);
+Route::resource('reports', ReportController::class)->only(['index','show']);
+Route::resource('billings', BillingController::class);
+
+//apointments
+Route::resource('appointments', AppointmentController::class);
+Route::get('/appointments.create',[AppointmentController::class,'create']);
+
 
 

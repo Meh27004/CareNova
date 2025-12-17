@@ -17,21 +17,51 @@
 @section('content')
 <div class="container mt-2">
     <div class="card shadow">
-        <div class="card-header text-dark">
+        <div class="card-header bg-primary text-dark">
             <h4>Add New Patient</h4>
         </div>
-        <div class="card-body g-4">
-            <form action="{{ route('patients.store') }}" method="POST">
-    @csrf
-    <input type="text" name="name" placeholder="Name" value="{{ old('name') }}" required>
-    <input type="number" name="age" placeholder="Age" value="{{ old('age') }}" required>
-    <input type="text" name="disease" placeholder="Disease" value="{{ old('disease') }}" required>
-    <input type="text" name="current_address" placeholder="Address" value="{{ old('current_address') }}">
-    <input type="gmail" name="gmail" placeholder="gmail" value="{{ old('gmail') }}">
-    <input type="text" name="phone_number" placeholder="Phone" value="{{ old('phone_number') }}" required>
-    <button type="submit">Add Patient</button>
-</form>
+         <div class="card-body">
 
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+            <form action="{{ route('patients.store') }}" method="POST">
+     @csrf
+
+            <div class="mb-3">
+                <label>Your Name</label>
+                <input type="text" class="form-control" name="name" required placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+                <label>Age</label>
+                <input type="number" class="form-control" name="age" required placeholder="Enter your Age">
+            </div><div class="mb-3">
+                <label>disease</label>
+                <input type="text" class="form-control" name="disease" required placeholder="Enter your disease">
+            </div>
+            <div class="mb-3">
+                <label>Current Address</label>
+                <input type="text" class="form-control" name="current_address" required placeholder="Enter your address">
+            </div>
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="text" class="form-control" name="gmail" required placeholder="Enter your email">
+            </div>
+              
+               <div class="mb-3">
+                <label>Phone</label>
+                <input type="text" class="form-control" name="phone_number" required placeholder="Enter number">
+            </div>
+<button type="submit" class="btn btn-success">Save</button>
+            <a href="{{ route('patients.index') }}" class="btn btn-dark">Back</a>
+</form>
+ </div>
         </div>
     </div>
 </div>

@@ -17,11 +17,11 @@
                     <li><a href="{{ route('dashboard') }}" class="flex items-center px-3 py-2 rounded hover:bg-gray-800"><i class="fas fa-chart-pie mr-2"></i> Dashboard</a></li>
                     <li><a href="{{ route('patients.index', PatientsController::class) }}" class="flex items-center px-3 py-2 rounded hover:bg-gray-800"><i class="fas fa-user-injured mr-2"></i> Patients</a></li>
                     <li><a href="{{ route('doctors.index', DoctorsController::class) }}" class="flex items-center px-3 py-2 rounded hover:bg-gray-800"><i class="fas fa-user-md mr-2"></i> Doctors</a></li>
-                    <li><a href="{{ route('appointments') }}" class="flex items-center px-3 py-2 rounded hover:bg-gray-800"><i class="fas fa-calendar-check mr-2"></i> Appointments</a></li>
+                    {{-- <li><a href="{{ route('patient.appointments.create', AppointmentContoller::class) }}" class="flex items-center px-3 py-2 rounded hover:bg-gray-800"><i class="fas fa-calendar-check mr-2"></i> Appointments</a></li> --}}
                     <li><a href="{{ route('cities.index', CityController::class) }}" class="flex items-center px-3 py-2 rounded hover:bg-gray-800"><i class="fas fa-hospital mr-2"></i>Cities</a></li>
                     <li><a href="{{ route('hospital.index', HospitalController::class) }}" class="flex items-center px-3 py-2 rounded hover:bg-gray-800"><i class="fas fa-hospital mr-2"></i>Hospital</a></li>
-                    <li><a href="{{ route('reports') }}" class="flex items-center px-3 py-2 rounded hover:bg-gray-800"><i class="fas fa-file-alt mr-2"></i> Reports</a></li>
-                    <li><a href="{{ route('billing') }}" class="flex items-center px-3 py-2 rounded hover:bg-gray-800"><i class="fas fa-file-invoice-dollar mr-2"></i> Billing</a></li>
+                    <li><a href="{{ route('reports.index', ReportController::class) }}" class="flex items-center px-3 py-2 rounded hover:bg-gray-800"><i class="fas fa-file-alt mr-2"></i> Reports</a></li>
+                    <li><a href="{{ route('billings.index', BillingController::class) }}" class="flex items-center px-3 py-2 rounded hover:bg-gray-800"><i class="fas fa-file-invoice-dollar mr-2"></i> Billing</a></li>
 
                 </ul>
             </div>

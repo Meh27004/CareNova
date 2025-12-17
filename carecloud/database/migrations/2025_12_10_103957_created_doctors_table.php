@@ -14,6 +14,7 @@ return new class extends Migration
             $table->integer('age');
             $table->string('specialization');
             $table->string('hospital');
+            $table->string('city');
             $table->string('phone');
             $table->string('gmail');
             $table->timestamps();
