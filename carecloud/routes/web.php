@@ -1,5 +1,5 @@
-<?php
-
+<?php 
+use App\Http\Controllers\DoctorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\AdminController;
@@ -66,11 +66,8 @@ Route::get('/doctor', function () {
 
 Route::get('/service', function () {
     return view('patient.service');
-});n
+});
 /////views for patients end////
-
-
-
 
 // Auth Routes
 Route::get('/login', function () {
@@ -101,5 +98,16 @@ Route::resource('billings', BillingController::class);
 Route::resource('appointments', AppointmentController::class);
 Route::get('/appointments.create',[AppointmentController::class,'create']);
 
+Route::get('/doctor/create', [DoctorController::class, 'create']);
+Route::post('/doctor/store', [DoctorController::class, 'store']);
 
 
+// use Illuminate\Support\Facades\Route;
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+//doctor dashboard view
+Route::get('/doctorview',[DoctorController::class,"doctordashboard"])->name('doctordashboard');
+Route::get('/doctorappoinment',[DoctorController::class,"doctorappoinment"])->name('doctorappoinment');
