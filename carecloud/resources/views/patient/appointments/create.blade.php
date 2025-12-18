@@ -68,6 +68,8 @@
       
 {{-- ////from --}}
       <div class="col-lg-8">
+
+      {{-- <div class="col-lg-8">
            <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
             <h2 class="mb-2 title-color">Book an appoinment</h2>
             <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
@@ -130,7 +132,74 @@
       </div>
     </div>
   </div>
-</section>
+</section> --}}
+
+
+
+<form method="POST" action="{{ route('appointments.store') }}">
+@csrf
+
+<div class="row">
+
+    {{-- Hospital --}}
+ <select name="hospital_id" class="form-control mb-4">
+    <option value="">Select Hospital</option>
+
+    @isset($hospitals)
+        @foreach($hospitals as $hospital)
+            <option value="{{ $hospital->id }}">
+                {{ $hospital->name }}
+            </option>
+        @endforeach
+    @endisset
+</select>
+
+    {{-- Doctor --}}
+    <div class="col-lg-6">
+        <div class="form-group">
+            <select name="doctor_id" class="form-control" required>
+                <option value="">Select Doctor</option>
+                @isset($doctors)
+                  
+                
+                @foreach($doctors as $doctor)
+                    <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
+                @endforeach
+@endisset
+            </select>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <input type="date" name="date" class="form-control" required>
+    </div>
+
+    <div class="col-lg-6">
+        <input type="time" name="time" class="form-control" required>
+    </div>
+
+    <div class="col-lg-6">
+        <input type="text" name="name" class="form-control" placeholder="Patient Name" required>
+    </div>
+
+    <div class="col-lg-6">
+        <input type="email" name="email" class="form-control" placeholder="Email" required>
+    </div>
+
+    <div class="col-lg-6">
+        <input type="number" name="phone" class="form-control mt-2" placeholder="Phone" required>
+    </div>
+
+</div>
+
+<textarea name="message" class="form-control mt-3" placeholder="Message"></textarea>
+
+<button type="submit" class="btn btn-main btn-round-full mt-3">
+    Make Appointment
+</button>
+
+</form>
+
 
 
 <!-- footer Start -->

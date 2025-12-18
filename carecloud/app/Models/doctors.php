@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Doctors extends Model
 {
-    protected $fillable = ['name','age' ,'specialization', 'hospital','phone','gmail'];
+    protected $fillable = ['name','age' ,'specialization', 'hospital','city','phone','gmail'];
+     
 
   public function availabilities()
 {

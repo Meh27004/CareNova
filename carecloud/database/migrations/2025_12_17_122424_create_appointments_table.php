@@ -9,17 +9,22 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-  public function up()
+   public function up()
 {
     Schema::create('appointments', function (Blueprint $table) {
         $table->id();
-        $table->string('hospital');
-        $table->string('doctor');
+
+        $table->unsignedBigInteger('hospital_id');
+        $table->unsignedBigInteger('doctor_id');
+
         $table->date('date');
-        $table->string('time');
+        $table->time('time');
+
         $table->string('name');
+        $table->string('email');
         $table->string('phone');
         $table->text('message')->nullable();
+
         $table->timestamps();
     });
 }

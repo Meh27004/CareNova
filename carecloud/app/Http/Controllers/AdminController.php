@@ -14,10 +14,6 @@ class AdminController extends Controller
     ];
  
 
-private $reports = [
-    ['id'=>1, 'title'=>'Monthly Patient Report', 'date'=>'2025-12-01', 'type'=>'Patient'],
-    ['id'=>2, 'title'=>'Doctors Attendance', 'date'=>'2025-12-05', 'type'=>'Doctor'],
-];
 
 
 private $billing = [
@@ -38,9 +34,6 @@ private $billing = [
         return view('admin.appointments', ['appointments' => $this->appointments]);
     }
 
-public function reports() {
-    return view('admin.reports', ['reports'=>$this->reports]);
-}
 
 public function billing() {
     return view('admin.billing', ['billing'=>$this->billing]);
