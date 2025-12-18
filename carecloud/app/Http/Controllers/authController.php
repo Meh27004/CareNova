@@ -15,7 +15,7 @@ class authController extends Controller
             'email'=>"required|email|unique:users,email",
             'password'=>"required",
            
-
+  
         ]);
 
 

@@ -63,7 +63,7 @@ Route::get('/doctor', function () {
 
 Route::get('/service', function () {
     return view('patient.service');
-});n
+});
 /////views for patients end////
 
 
@@ -93,7 +93,7 @@ Route::post('/register',[authController::class,'register'])->name('auth.register
 Route::post('/login', [authController::class, 'login'])->name('auth.login');
 
 // Admin Routs   //
-Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+Route::get('/admin', [AdminController::class, 'dashboard'])->name('dashboard');
 Route::get('/appointments', [AdminController::class, 'appointments'])->name('appointments');
 Route::get('/reports', [AdminController::class, 'reports'])->name('reports');
 Route::get('/billing', [AdminController::class, 'billing'])->name('billing');

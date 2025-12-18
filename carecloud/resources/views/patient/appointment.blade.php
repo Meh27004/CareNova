@@ -63,6 +63,10 @@
           </div>
       </div>
 
+
+
+      
+{{-- ////from --}}
       <div class="col-lg-8">
            <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
             <h2 class="mb-2 title-color">Book an appoinment</h2>
@@ -73,9 +77,10 @@
                          <div class="col-lg-6">
                             <div class="form-group">
                                 <select name="hospital" class="form-control">
-    <option>Select Hospital</option>
-    <option>City Hospital</option>
-    <option>General Hospital</option>
+    <option value="">Select Hospital</option>
+                    @foreach($hospitals as $hospital)
+                        <option value="{{ $hospital->name }}">{{ $hospital->name }}</option>
+                    @endforeach
 </select>
                             </div>
                         </div>
@@ -86,9 +91,10 @@
                           @enderror
                             <div class="form-group">
                                <select name="doctor" class="form-control">
-    <option>Select Doctor</option>
-    <option>Dr. Ali</option>
-    <option>Dr. Sara</option>
+     <option value="">Select Doctor</option>
+                    @foreach($doctorss as $doctor)
+                        <option value="{{ $doctor->name }}">{{ $doctor->name }}</option>
+                    @endforeach
 </select>
                             </div>
                         </div>
