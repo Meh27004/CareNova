@@ -10,6 +10,9 @@ use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DoctorspageController;
+
+
 
 
 
@@ -117,3 +120,8 @@ Route::post('/doctor/store', [DoctorController::class, 'store']);
 //doctor dashboard view
 Route::get('/doctorview',[DoctorController::class,"doctordashboard"])->name('doctordashboard');
 Route::get('/doctorappoinment',[DoctorController::class,"doctorappoinment"])->name('doctorappoinment');
+
+
+
+Route::get('/doctors', [DoctorspageController::class, 'index'])
+    ->name('patient.doctors');

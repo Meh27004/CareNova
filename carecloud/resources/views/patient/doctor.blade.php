@@ -91,7 +91,7 @@
 	        </div>
       </div>
 
-    <div class="row shuffle-wrapper portfolio-gallery">
+    {{-- <div class="row shuffle-wrapper portfolio-gallery">
       	<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item" data-groups="[&quot;cat1&quot;,&quot;cat2&quot;]">
 	      	<div class="position-relative doctor-inner-box">
 		        <div class="doctor-profile">
@@ -247,7 +247,44 @@
         </div>
     </div>
   </div>
-</section>
+</section> --}}
+<div class="row shuffle-wrapper portfolio-gallery">
+    @foreach($doctors as $doctor)
+        <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item">
+            <div class="position-relative doctor-inner-box">
+                <div class="doctor-profile">
+                    <div class="doctor-img">
+                        <img src="{{ asset('user/images/team/1.jpg') }}"
+                             alt="doctor-image"
+                             class="img-fluid w-100">
+                    </div>
+                </div>
+
+                <div class="content mt-3">
+                    <h4 class="mb-0">
+                        <a href="#">{{ $doctor->name }}</a>
+                    </h4>
+                    <p>{{ $doctor->specialization }}</p>
+
+                    <small class="text-muted">
+                        {{ $doctor->hospital }} , {{ $doctor->city }}
+                    </small>
+
+                    <div class="mt-2">
+                        @foreach($doctor->availabilities as $availability)
+                            <span class="badge badge-success d-block mb-1">
+                                {{ $availability->day }}
+                                {{ $availability->start_time }} -
+                                {{ $availability->end_time }}
+                            </span>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div>
+
 <!-- /portfolio -->
 <section class="section cta-page">
 	<div class="container">
